@@ -10,7 +10,7 @@ return array(
     'Tester\\' => array($vendorDir . '/nette/tester/src'),
     'Symfony\\Thanks\\' => array($vendorDir . '/symfony/thanks/src'),
     'PHPStan\\' => array($vendorDir . '/phpstan/phpstan-nette/src'),
-    'Nette\\' => array($vendorDir . '/nette/application/src', $vendorDir . '/nette/assets/src', $vendorDir . '/nette/caching/src', $vendorDir . '/nette/component-model/src', $vendorDir . '/nette/forms/src', $vendorDir . '/nette/php-generator/src', $vendorDir . '/nette/robot-loader/src', $vendorDir . '/nette/utils/src', $vendorDir . '/nette/http/src', $vendorDir . '/nette/routing/src', $vendorDir . '/nette/schema/src', $vendorDir . '/nette/neon/src', $vendorDir . '/nette/di/src', $vendorDir . '/nette/bootstrap/src', $vendorDir . '/nette/database/src', $vendorDir . '/nette/mail/src', $vendorDir . '/nette/security/src'),
+    'Nette\\' => array($vendorDir . '/nette/application/src', $vendorDir . '/nette/assets/src', $vendorDir . '/nette/bootstrap/src', $vendorDir . '/nette/caching/src', $vendorDir . '/nette/component-model/src', $vendorDir . '/nette/database/src', $vendorDir . '/nette/di/src', $vendorDir . '/nette/forms/src', $vendorDir . '/nette/http/src', $vendorDir . '/nette/mail/src', $vendorDir . '/nette/neon/src', $vendorDir . '/nette/php-generator/src', $vendorDir . '/nette/robot-loader/src', $vendorDir . '/nette/routing/src', $vendorDir . '/nette/schema/src', $vendorDir . '/nette/security/src', $vendorDir . '/nette/utils/src'),
     'Latte\\' => array($vendorDir . '/latte/latte/src/Latte'),
     'App\\' => array($baseDir . '/app'),
 );
