@@ -1,6 +1,6 @@
 # Nette
 .DS_Store
 .scannerwork
-#package-lock.json
-#composer.lock
+package-lock.json
+composer.lock
 sonarqube.txt
