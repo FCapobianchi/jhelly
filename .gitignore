@@ -1,11 +1,6 @@
 # Nette
 .DS_Store
-config/local.neon
+.scannerwork
 package-lock.json
 composer.lock
-log/*
-cache/*
-uploads/*
-.scannerwork
-#node_modules
 sonarqube.txt
