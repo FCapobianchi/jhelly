@@ -39,13 +39,7 @@ class mDNSDiscoveryService {
                     'host'      => $parts[6]??'',
                     'ip'        => $parts[7]??'',
                     'port'      => $parts[8]??'',
-                    'part9'     => $parts[9]??'',
-                    'part10'     => $parts[10]??'',
-                    'part11'     => $parts[11]??'',
-                    'part12'     => $parts[12]??'',
-                    'part13'     => $parts[13]??'',
-                    'part14'     => $parts[14]??'',
-                    'part15'     => $parts[15]??'',
+                    'info'     => $parts[9]??'',
                 ];
             }
         }
