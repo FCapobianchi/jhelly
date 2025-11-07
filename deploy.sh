@@ -25,4 +25,6 @@ sudo rsync -avzh --exclude-from="${SCRIPT_DIR}/deploy.txt" "${SCRIPT_DIR}/" "${D
 sudo chown -R www-data:www-data "${DEPLOY_DIR}"
 sudo find "${DEPLOY_DIR}" -type d -exec chmod 755 {} +
 sudo find "${DEPLOY_DIR}" -type f -exec chmod 644 {} +
-sudo rm -rf "${DEPLOY_DIR}"temp/cache/*
+sudo rm -rf "${DEPLOY_DIR}"/temp/cache/*
+# Capire come escludere solo quella dir dal deploy
+sudo rm -rf "${DEPLOY_DIR}"/assets/
