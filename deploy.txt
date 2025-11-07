@@ -8,6 +8,7 @@ composer.json
 composer.lock
 deploy.sh
 deploy.txt
+LICENSE
 package-lock.json
 package.json
 phpstan.neon
