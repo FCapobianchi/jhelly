@@ -1,3 +1,9 @@
-html {
-    
+ #page-content-wrapper > .container, 
+ #page-content-wrapper > .container-fluid, 
+ #page-content-wrapper > .container-xxl, 
+ #page-content-wrapper > .container-xl, 
+ #page-content-wrapper > .container-lg, 
+ #page-content-wrapper > .container-md, 
+ #page-content-wrapper > .container-sm {
+    padding-top: calc(var(--bs-gutter-x) * .5);
 }

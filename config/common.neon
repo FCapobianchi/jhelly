@@ -33,3 +33,14 @@ di:
 	export:
 		parameters: no
 		tags: no
+
+security:
+	users:
+		# name, password, role and other data available in the identity
+		admin:
+			password: password
+			roles: [admin, user]
+			data: 
+				nome: "Super"
+				cognome: "Admin"
+				email: "name@domain.ext"

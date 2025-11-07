@@ -1,0 +1,32 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+	<h1 class="mt-4">mDNS devices</h1>
+	{snippet deviceSnippet}
+		{ifset $devices}
+		<table class="table">
+		{foreach $devices as $device}
+			{if $iterator->first}
+				<thead>
+					<tr>
+					{foreach $device as $key => $value}
+						<th scope="col">{$key}</th>
+					{/foreach}
+					</tr>
+				</thead>
+			{/if}
+				<tbody>
+					<tr>
+						{foreach $device as $key => $value}
+							<th scope="col">{$value}</th>
+						{/foreach}
+					</tr>
+				</tbody>
+			{if $iterator->last}			
+			{/if}
+		{/foreach}
+		</table>
+		{/ifset}
+	{/snippet}	
+	<a n:href="findDevices!" class="ajax">Vai</a>
+{/block}
