@@ -1,0 +1,13 @@
+.git
+.node_modules
+.template
+.gitignore
+composer.json
+composer.lock
+deploy.sh
+deploy.txt
+package-lock.json
+package.json
+phpstan.neon
+readme.md
+vite.config.ts
