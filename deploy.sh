@@ -19,7 +19,7 @@ git -C "${SCRIPT_DIR}" pull main main
 git -C "${SCRIPT_DIR}" checkout main -f
 
 #eseguo l'rsync sulla cartella del webserver
-sudo rsync -avzh --exclude-from="${SCRIPT_DIR}/deploy.txt". "${DEPLOY_DIR}"
+sudo rsync -avzh --exclude-from="${SCRIPT_DIR}/deploy.txt" "${SCRIPT_DIR}/" "${DEPLOY_DIR}/"
 
 # Sistemo i permessi per evitare problemi
 sudo chown -R www-data:www-data "${DEPLOY_DIR}"

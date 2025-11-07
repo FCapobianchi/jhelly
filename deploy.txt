@@ -1,6 +1,8 @@
 .git
-.node_modules
-.template
+assets
+node_modules
+temp/cache/*
+template
 .gitignore
 composer.json
 composer.lock
