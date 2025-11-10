@@ -11,9 +11,10 @@ application:
 
 
 database:
-	dsn: 'sqlite::memory:'
-	user:
-	password:
+	default:
+		dsn: 'sqlite::memory:'
+		user:
+		password:
 
 
 latte:
