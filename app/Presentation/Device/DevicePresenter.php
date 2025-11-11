@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Presentation\Device;
 
+use Nette;
+use Nette\Application\UI\Form;
+use Nette\Utils\ArrayHash;
 use App\Core\JhellyAPI;
 use App\Core\mDNSDiscoveryService;
 use App\Core\RequireLoggedUser;
+use App\Form\DeviceFormFactory;
 use App\Model\DeviceFacade;
-use Nette;
-use Nette\Utils\ArrayHash;
 
 final class DevicePresenter extends Nette\Application\UI\Presenter {
     
@@ -32,11 +34,52 @@ final class DevicePresenter extends Nette\Application\UI\Presenter {
     }
 
     public function renderAdd(array|ArrayHash $device):void {
-        bdump($device);
-        $parameters['base_uri'] = "http://{$device['host']}:{$device['port']}";
-        $shellyAPI = new JhellyAPI($parameters);
-        bdump($shellyAPI->shelly());
+        $this->setView("form");
+        if($this->template->error??false) {
+            $this->flashMessage($this->template->error, "alert-danger");
+        }
+    }
 
+    protected function createComponentDeviceForm(): form {
+
+        $form = (new DeviceFormFactory)->default();
+        $id = $this->getParameter("id");
+        $device = $this->getParameter("device");
+        if($id) {
+            $device = $this->model->get($id);
+            $form->setDefaults($device);
+        } else {
+            $attributes = $this->getDeviceInfo($device);
+            if ($attributes['errno']??false) {
+                $form->addError("{$attributes['errno']} - {$attributes['error']}");
+                $attributes = [];
+            }
+            $device["attributes"] = serialize($attributes);
+            $info = str_replace('"','',$device['info']);
+            $info = explode(" ",$info);
+            $device['info'] = serialize($info);
+            $form->setDefaults($device);
+        }
+        
+        $form->onValidate[] = $this->deviceFormValidate(...);
+        $form->onSuccess[] = $this->deviceFormSuccess(...);
+        return $form;
+    }
+
+    protected function getDeviceInfo($device):array {
+        $protocol = ($device['port']==80)?'http':'https';
+        $parameters['base_uri'] = "{$protocol}://{$device['host']}:{$device['port']}";
+        $jApi = new JhellyAPI($parameters);
+        $response = $jApi->shelly();
+        return $response->response??[];
+    }
+
+    protected function deviceFormValidate(Form $form, ArrayHash $values) {
+        bdump($values);
+    }
+
+    public function deviceFormSuccess(Form $form, ArrayHash $values) {
+        bdump($values);
     }
 
 }

@@ -18,7 +18,7 @@ use Nette\Utils\ArrayHash;
 class responseApi {
 	public readonly int $code;
 	public readonly string $description;
-	public readonly ArrayHash $response;
+	public readonly array $response;
 
     public function __construct(Response|Exception $response){
         $classType = "GuzzleHttp\Psr7\Response";
@@ -26,7 +26,7 @@ class responseApi {
         $this->description = (is_a($response,$classType))?$response->getReasonPhrase():$response->getMessage(); // ESEMPIO OK
         $body = (is_a($response,$classType))?(string)$response->getBody():$response->getHandlerContext();
         $array = (is_a($response,$classType))?json_decode($body,true):$body;
-        $this->response = ArrayHash::from($array); // BODY DELLA RESPONSE
+        $this->response = $array; // BODY DELLA RESPONSE
     }
 }
 
@@ -48,7 +48,7 @@ class JhellyAPI {
     public function __construct(private array $parameters) {
         /** INIZIALIZZAZIONE CLASSE E PARAMETRI */
         $base_uri = "{$parameters['base_uri']}";
-        $timeout = $parameters['timeout']??1;
+        $timeout = $parameters['timeout']??10;
         $this->client = new Client([
             // Base URI is used with relative requests
             'base_uri' => $base_uri,

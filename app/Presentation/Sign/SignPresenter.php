@@ -41,17 +41,17 @@ final class SignPresenter extends Nette\Application\UI\Presenter  {
     public function loginSucceeded(Form $form, ArrayHash $values): void {
         try {
             $this->getUser()->login($values->username, $values->password);
-            $this->flashMessage('Login eseguito correttamente.', "alert-success");
+            $this->flashMessage('You are logged in.', "alert-success");
             $this->restoreRequest($values->backlink??'');
             $this->redirect('Home:default');
         } catch (AuthenticationException $e) {
-            $form->addError("Login o password errati.");
+            $form->addError("Login or password error.");
         }
     }
 
     public function renderOut():void {
         $this->getUser()->logout(true);
-        $this->flashMessage("Logout eseguito correttamente.", "alert-success");
+        $this->flashMessage("You are logged out.", "alert-success");
         $this->redirect(":default");
     }
 

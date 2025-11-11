@@ -7,3 +7,23 @@
  #page-content-wrapper > .container-sm {
     padding-top: calc(var(--bs-gutter-x) * .5);
 }
+
+form table {
+    width: 100%;
+}
+
+form ul.error {
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #842029;
+    background-color: #f8d7da;
+    border: #842029;
+    border-radius: .375rem;
+}
+
+form ul.error li {
+    list-style:none;
+}
+
+
