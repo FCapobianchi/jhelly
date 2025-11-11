@@ -1,0 +1,6 @@
+
+interface	protocol	name	                service	    domain	host	                            ip	            port	info
+eth0	    IPv4	shellyswitch25-3494547BFDEF	Web Site	local	shellyswitch25-3494547BFDEF.local	192.168.1.106	80	"discoverable=false" "fw_id=20230913-112234/v1.14.0-gcb84623" "fw_version=1.0" "app=switch25" "arch=esp8266" "id=shellyswitch25-3494547BFDEF"
+eth0	    IPv4	shelly1-3494547A8FA8	    Web Site	local	shelly1-3494547A8FA8.local	        192.168.1.107	80	"discoverable=false" "fw_id=20230913-112003/v1.14.0-gcb84623" "fw_version=1.0" "app=switch1" "arch=esp8266" "id=shelly1-3494547A8FA8"
+eth0	    IPv4	shellyswitch25-349454793BA5	Web Site	local	shellyswitch25-349454793BA5.local	192.168.1.109	80	"discoverable=false" "fw_id=20230913-112234/v1.14.0-gcb84623" "fw_version=1.0" "app=switch25" "arch=esp8266" "id=shellyswitch25-349454793BA5"
+eth0	    IPv4	shelly1-349454738E90	    Web Site	local	shelly1-349454738E90.local	        192.168.1.108	80	"discoverable=false" "fw_id=20230913-112003/v1.14.0-gcb84623" "fw_version=1.0" "app=switch1" "arch=esp8266" "id=shelly1-349454738E90"

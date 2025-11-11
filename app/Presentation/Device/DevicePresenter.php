@@ -50,9 +50,15 @@ final class DevicePresenter extends Nette\Application\UI\Presenter {
             $form->setDefaults($device);
         } else {
             $attributes = $this->getDeviceInfo($device);
+            bdump($attributes);
             if ($attributes['errno']??false) {
                 $form->addError("{$attributes['errno']} - {$attributes['error']}");
+                $form->getComponent("submit")->setDisabled(true);
                 $attributes = [];
+            }
+            if ($attributes['auth']??false) {
+                $form->getComponent("user")->setRequired(true);
+                $form->getComponent("password")->setRequired(true);
             }
             $device["attributes"] = serialize($attributes);
             $info = str_replace('"','',$device['info']);
@@ -66,7 +72,7 @@ final class DevicePresenter extends Nette\Application\UI\Presenter {
         return $form;
     }
 
-    protected function getDeviceInfo($device):array {
+    protected function getDeviceInfo(array $device):array {
         $protocol = ($device['port']==80)?'http':'https';
         $parameters['base_uri'] = "{$protocol}://{$device['host']}:{$device['port']}";
         $jApi = new JhellyAPI($parameters);
