@@ -27,7 +27,7 @@ final class DevicePresenter extends Nette\Application\UI\Presenter {
         $this->template->dbDevices = $dbDevices;
     }
 
-    public function handleFindDevices():void {
+    public function handleDiscoverDevices():void {
         $devices = $this->mDNS->getDevices();
         $this->template->devices = $devices;
         $this->redrawControl('deviceSnippet');
