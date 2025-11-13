@@ -15,7 +15,7 @@ sudo find "${DEPLOY_DIR}" -type f -exec chmod 644 {} +
 
 # eseguo la pull del progetto
 git -C "${SCRIPT_DIR}" fetch
-git -C "${SCRIPT_DIR}" pull main main
+git -C "${SCRIPT_DIR}" pull
 git -C "${SCRIPT_DIR}" checkout main -f
 
 #eseguo l'rsync sulla cartella del webserver
