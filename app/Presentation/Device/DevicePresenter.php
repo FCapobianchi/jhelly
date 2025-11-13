@@ -41,16 +41,15 @@ final class DevicePresenter extends Nette\Application\UI\Presenter {
     }
 
     protected function createComponentDeviceForm(): form {
-
         $form = (new DeviceFormFactory)->default();
         $id = $this->getParameter("id");
-        $device = $this->getParameter("device");
+        
         if($id) {
             $device = $this->model->get($id);
             $form->setDefaults($device);
         } else {
+            $device = $this->getParameter("device");
             $attributes = $this->getDeviceInfo($device);
-            bdump($attributes);
             if ($attributes['errno']??false) {
                 $form->addError("{$attributes['errno']} - {$attributes['error']}");
                 $form->getComponent("submit")->setDisabled(true);
@@ -80,12 +79,30 @@ final class DevicePresenter extends Nette\Application\UI\Presenter {
         return $response->response??[];
     }
 
-    protected function deviceFormValidate(Form $form, ArrayHash $values) {
+    public function deviceFormValidate(Form $form, ArrayHash $values) {
         bdump($values);
     }
 
     public function deviceFormSuccess(Form $form, ArrayHash $values) {
         bdump($values);
+        $id = $this->getParameter("id");
+        if($id) {
+            $record = $this->model->get($id);
+            $record->update($values);
+        }
+        else {
+            $record = $this->model->add($values);
+            
+        }
+        if($record) {
+            $this->flashMessage("Data storage OK.","alert-success");
+        }
+        else {
+            $this->flashMessage("Data storage KO.","alert-danger");
+
+        }
+        bdump($record);
+
     }
 
 }
